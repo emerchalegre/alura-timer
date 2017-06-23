@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 const { ipcRenderer, shell } = require('electron');
     const process = require('process');
 
@@ -7,12 +8,12 @@ let versaoElectron = document.querySelector('#versao-electron');
 
 window.onload = function(){
     versaoElectron.textContent = process.versions.electron;
-}
+};
 
 linkFechar.addEventListener('click', function () {
     ipcRenderer.send('fechar-janela-sobre');
-})
+});
 
 linkTwitter.addEventListener('click', function () {
     shell.openExternal("https://www.twitter.com/dquintanilhas");
-})
+});

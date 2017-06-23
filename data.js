@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 const jsonfile = require('jsonfile-promised');
 const fs = require('fs');
 
@@ -8,7 +9,7 @@ module.exports = {
       if(fs.existsSync(path)) {
         this.adicionaTempoAoCurso(path, tempoEstudado);
       } else {
-        this.criaArquivoDeCurso(path, {});
+        //this.criaArquivoDeCurso(path, {});
         this.adicionaTempoAoCurso(path, tempoEstudado);
       }
   },
@@ -17,7 +18,7 @@ module.exports = {
       ultimoEstudo: new Date().toString(),
       tempo: tempoEstudado
     };
-
+    console.log(dados);
     jsonfile.writeFile(path, dados, {spaces: 2})
         .then(() => console.log("Tempo salvo com sucesso!!"))
         .catch(err => console.log(err));
@@ -35,7 +36,7 @@ module.exports = {
     let arquivos = fs.readdirSync(__dirname + '/data/');
     let cursos = arquivos.map(arquivo => {
        return arquivo.substr(0, arquivo.lastIndexOf('.'));
-    })
+    });
     return cursos;
   }
-}
+};

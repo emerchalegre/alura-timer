@@ -1,6 +1,7 @@
+/* jshint esversion: 6 */
 const { ipcRenderer } = require('electron');
 const moment = require('moment');
-let segundos;
+let segundos = 0;
 let timer;
 let tempo;
 
@@ -22,4 +23,4 @@ module.exports = {
   segungosParaTempo(segundos) {
     return moment().startOf('day').seconds(segundos).format("HH:mm:ss");
   }
-}
+};
